@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stra Bar - Ferrara</title>
+
+<style>
+body{
+font-family:Arial, sans-serif;
+margin:0;
+color:white;
+background:#000;
+background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b');
+background-size:cover;
+background-attachment:fixed;
+background-position:center;
+}
+
+header{
+background:rgba(0,0,0,0.85);
+padding:25px;
+text-align:center;
+backdrop-filter:blur(4px);
+}
+
+.logo{
+width:140px;
+border-radius:50%;
+margin-bottom:10px;
+}
+
+nav{margin-top:15px}
+
+nav a{
+color:white;
+margin:0 12px;
+text-decoration:none;
+font-weight:bold;
+transition:0.2s;
+}
+
+nav a:hover{
+color:#ff0066;
+}
+
+.hero{
+padding:110px 20px;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9));
+}
+
+.hero h2{
+font-size:2.3rem;
+margin-bottom:10px;
+}
+
+.section{
+padding:60px 20px;
+max-width:1100px;
+margin:auto;
+background:rgba(0,0,0,0.75);
+border-radius:12px;
+margin-bottom:40px;
+}
+
+.drinks{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:25px;
+}
+
+.card{
+background:#1b1b1b;
+padding:20px;
+border-radius:14px;
+cursor:pointer;
+transition:0.25s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:scale(1.06);
+background:#262626;
+}
+
+.card h3{
+margin-top:0;
+margin-bottom:6px;
+}
+
+.card p{
+font-size:0.9rem;
+opacity:0.9;
+}
+
+.card small{
+opacity:0.6;
+font-size:0.75rem;
+}
+
+footer{
+background:#111;
+padding:30px;
+text-align:center;
+font-size:0.9rem;
+}
+
+button{
+background:#ff0066;
+border:none;
+padding:12px 26px;
+color:white;
+border-radius:8px;
+cursor:pointer;
+font-size:1rem;
+margin-top:15px;
+transition:0.2s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.modal{
+display:none;
+position:fixed;
+z-index:1000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.92);
+justify-content:center;
+align-items:center;
+}
+
+.modal img{
+max-width:90%;
+max-height:90%;
+border-radius:12px;
+box-shadow:0 0 30px rgba(0,0,0,0.8);
+}
+
+.close{
+position:absolute;
+top:30px;
+right:45px;
+font-size:42px;
+cursor:pointer;
+}
+
+.contact-logo{
+width:100px;
+margin-bottom:10px;
+border-radius:50%;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<!-- LOGO DEL BAR -->
+<img class="logo" src="logo.png" alt="Stra Bar Logo">
+
+<p>Ferrara</p>
+
+<nav>
+<a href="#menu">Drink</a>
+<a href="#info">Il Locale</a>
+<a href="#contatti">Contatti</a>
+</nav>
+
+</header>
+
+<section class="hero">
+<h2>I drink della serata</h2>
+<p>Scopri cosa bere prima di uscire con i tuoi amici</p>
+<button onclick="scrollToMenu()">Scopri i drink</button>
+</section>
+
+<section class="section" id="menu">
+<h2>Menu Drink</h2>
+<p style="opacity:0.7">Clicca su un drink per vedere l'immagine completa.</p>
+
+<div class="drinks">
+
+<div class="card" onclick="openDrink('https://images.unsplash.com/photo-1582574644898-df0e9cfae0b0')">
+<h3>Mojito</h3>
+<p>Rum, lime, zucchero di canna, menta</p>
+<small>Clicca per vedere il drink</small>
+</div>
+
+<div class="card" onclick="openDrink('https://images.unsplash.com/photo-1551024709-8f23befc6f87')">
+<h3>Spritz</h3>
+<p>Aperol, prosecco, soda</p>
+<small>Clicca per vedere il drink</small>
+</div>
+
+<div class="card" onclick="openDrink('https://images.unsplash.com/photo-1582450871972-ab5ca641643d')">
+<h3>Gin Tonic</h3>
+<p>Gin premium + acqua tonica</p>
+<small>Clicca per vedere il drink</small>
+</div>
+
+<div class="card" onclick="openDrink('https://images.unsplash.com/photo-1605270012917-bf157c5a9541')">
+<h3>Vodka Lemon</h3>
+<p>Vodka + lemon soda</p>
+<small>Clicca per vedere il drink</small>
+</div>
+
+<div class="card" onclick="openDrink('https://images.unsplash.com/photo-1546173159-315724a31696')">
+<h3>Negroni</h3>
+<p>Gin, vermouth rosso, Campari</p>
+<small>Clicca per vedere il drink</small>
+</div>
+
+<div class="card" onclick="openDrink('https://images.unsplash.com/photo-1510626176961-4b37d3c9fbdc')">
+<h3>Sex on the Beach</h3>
+<p>Vodka, pesca, arancia, cranberry</p>
+<small>Clicca per vedere il drink</small>
+</div>
+
+<div class="card" onclick="openDrink('https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8')">
+<h3>Margarita</h3>
+<p>Tequila, lime, triple sec</p>
+<small>Clicca per vedere il drink</small>
+</div>
+
+<div class="card" onclick="openDrink('https://images.unsplash.com/photo-1575023782549-62ca0d244b39')">
+<h3>Blue Lagoon</h3>
+<p>Vodka, blue curaçao, lemon</p>
+<small>Clicca per vedere il drink</small>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="info">
+<h2>Il locale</h2>
+<p>
+Stra Bar è il punto di ritrovo per i ragazzi di Ferrara.
+Musica, cocktail e serate da ricordare.
+</p>
+</section>
+
+<section class="section" id="contatti">
+<h2>Contatti</h2>
+
+<!-- LOGO DI NUOVO NELLA SEZIONE CONTATTI -->
+<img class="contact-logo" src="logo.png" alt="Stra Bar Logo">
+
+<p><strong>Stra Bar</strong></p>
+<p>Via Carlo Mayr 107</p>
+<p>Ferrara</p>
+
+<p>Seguici su Instagram</p>
+
+</section>
+
+<footer>
+<p>© 2026 Stra Bar • Ferrara</p>
+</footer>
+
+<div id="drinkModal" class="modal" onclick="closeDrink()">
+<span class="close">&times;</span>
+<img id="drinkImage" src="">
+</div>
+
+<script>
+
+function scrollToMenu(){
+document.getElementById('menu').scrollIntoView({behavior:'smooth'});
+}
+
+function openDrink(img){
+document.getElementById('drinkModal').style.display='flex';
+document.getElementById('drinkImage').src=img;
+}
+
+function closeDrink(){
+document.getElementById('drinkModal').style.display='none';
+}
+
+</script>
+
+</body>
+</html>
